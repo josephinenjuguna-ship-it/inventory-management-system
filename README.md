@@ -1,9 +1,5 @@
 # inventory-management-system
-Flask inventory management system with OpenFoodFacts API integration
-# Inventory Management System
-
 A beginner-friendly retail inventory management system built with Python and Flask.
-
 The system provides a REST API for managing inventory, integrates with the OpenFoodFacts API for product lookup, and includes a command-line interface (CLI) for interacting with the inventory.
 
 ## Features
@@ -16,10 +12,11 @@ The system provides a REST API for managing inventory, integrates with the OpenF
 6. Validate inventory data
 7. Search OpenFoodFacts by barcode
 8. Search OpenFoodFacts by product name
-9. Handle missing products and API failures
-10. Command-line interface for inventory management
-11. Automated tests using pytest
-12. Simulated inventory storage using a Python list
+9. Add an external API product to inventory
+10. Handle missing products and API failures
+11. Command-line interface for inventory management
+12. Automated tests using pytest
+13. Simulated inventory storage using a Python list
 
 ## Technologies Used
 
@@ -59,7 +56,7 @@ inventory-management-system/
  `external_api.py`       Handles OpenFoodFacts API requests               
  `cli.py`                Provides the command-line interface              
  `test_app.py`           Tests the Flask inventory API                    
- `test_external_api.py`  Tests OpenFoodFacts integration and API failures 
+ `test_external_api.py`  Tests OpenFoodFacts product lookup 
  `requirements.txt`      Lists project dependencies                       
 
 ## Installation and Setup
@@ -397,6 +394,17 @@ The CLI also handles products that cannot be found and temporary API failures wi
 
 ## OpenFoodFacts Integration
 
+
+## How OpenFoodFacts Integration Works
+
+1. The administrator selects "Find product on Open Food Facts" from the CLI.
+2. The administrator searches using a barcode or product name.
+3. The application sends a request to OpenFoodFacts.
+4. Product information is returned.
+5. The administrator can choose to add the product to the inventory.
+6. The administrator enters the product price and stock.
+7. The product is added to the simulated inventory list.
+
 The application uses OpenFoodFacts to retrieve product information.
 
 The integration supports:
@@ -431,8 +439,6 @@ The test suite covers:
 * Invalid stock values
 * OpenFoodFacts barcode lookup
 * OpenFoodFacts name lookup
-* Product-not-found responses
-* API failure responses
 
 ## Maintainability
 
