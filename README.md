@@ -120,37 +120,55 @@ You can test the API using tools such as Thunder Client, Postman, or curl.
 
 ## API Endpoints
 
-### Get all inventory
+You can test all API endpoints using **Thunder Client**, Postman, or another API testing tool.
 
-**GET**
-
-```text
-/inventory
-```
-
-Example:
+Start the Flask application first:
 
 ```bash
-curl http://127.0.0.1:5000/inventory
+python app.py
 ```
+
+The API will run locally at:
+
+```text
+http://127.0.0.1:5000
+```
+
+### Get all inventory
+
+**Method:** `GET`
+
+**URL:**
+
+```text
+http://127.0.0.1:5000/inventory
+```
+
+In Thunder Client:
+
+1. Select **GET**.
+2. Enter the URL.
+3. Click **Send**.
 
 Returns all inventory items.
 
 ### Get one inventory item
 
-**GET**
+**Method:** `GET`
+
+**URL:**
 
 ```text
-/inventory/<id>
+http://127.0.0.1:5000/inventory/1
 ```
 
-Example:
+In Thunder Client:
 
-```bash
-curl http://127.0.0.1:5000/inventory/1
-```
+1. Select **GET**.
+2. Enter the URL.
+3. Click **Send**.
 
-Returns the inventory item with the specified ID.
+Returns the inventory item with ID `1`.
 
 If the item does not exist, the API returns:
 
@@ -160,13 +178,20 @@ If the item does not exist, the API returns:
 
 ### Add an inventory item
 
-**POST**
+**Method:** `POST`
+
+**URL:**
 
 ```text
-/inventory
+http://127.0.0.1:5000/inventory
 ```
 
-Example JSON body:
+In Thunder Client:
+
+1. Select **POST**.
+2. Enter the URL.
+3. Go to **Body → JSON**.
+4. Enter:
 
 ```json
 {
@@ -178,13 +203,7 @@ Example JSON body:
 }
 ```
 
-Example using curl:
-
-```bash
-curl -X POST http://127.0.0.1:5000/inventory \
--H "Content-Type: application/json" \
--d '{"name":"Chocolate Bar","brand":"DailyLand","price":100,"stock":25,"barcode":"345222333"}'
-```
+5. Click **Send**.
 
 A successful request returns:
 
@@ -194,13 +213,20 @@ A successful request returns:
 
 ### Update an inventory item
 
-**PATCH**
+**Method:** `PATCH`
+
+**URL:**
 
 ```text
-/inventory/<id>
+http://127.0.0.1:5000/inventory/1
 ```
 
-Example:
+In Thunder Client:
+
+1. Select **PATCH**.
+2. Enter the URL.
+3. Go to **Body → JSON**.
+4. Enter:
 
 ```json
 {
@@ -209,13 +235,7 @@ Example:
 }
 ```
 
-Example using curl:
-
-```bash
-curl -X PATCH http://127.0.0.1:5000/inventory/1 \
--H "Content-Type: application/json" \
--d '{"price":120,"stock":30}'
-```
+5. Click **Send**.
 
 A successful request returns:
 
@@ -223,25 +243,42 @@ A successful request returns:
 200 OK
 ```
 
+The response contains the updated inventory item.
+
 ### Delete an inventory item
 
-**DELETE**
+**Method:** `DELETE`
+
+**URL:**
 
 ```text
-/inventory/<id>
+http://127.0.0.1:5000/inventory/1
 ```
 
-Example:
+In Thunder Client:
 
-```bash
-curl -X DELETE http://127.0.0.1:5000/inventory/1
-```
+1. Select **DELETE**.
+2. Enter the URL.
+3. Click **Send**.
 
 A successful deletion returns:
 
 ```text
 204 No Content
 ```
+
+### Error Responses
+
+The API handles common errors:
+
+| Status Code | Meaning                                         |
+| ----------- | ----------------------------------------------- |
+| `200`       | Request successful                              |
+| `201`       | Inventory item created                          |
+| `204`       | Item deleted successfully with no response body |
+| `400`       | Invalid or missing input                        |
+| `404`       | Inventory item not found                        |
+
 
 ### Error Responses
 
