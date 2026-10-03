@@ -280,18 +280,6 @@ The API handles common errors:
 | `404`       | Inventory item not found                        |
 
 
-### Error Responses
-
-The API handles common errors such as:
-
-| Status Code | Meaning                                         |
-| ----------- | ----------------------------------------------- |
-| `200`       | Request successful                              |
-| `201`       | Inventory item created                          |
-| `204`       | Item deleted successfully with no response body |
-| `400`       | Invalid or missing input                        |
-| `404`       | Inventory item not found                        |
-
 ## Command-Line Interface
 
 The project also provides an interactive CLI.
