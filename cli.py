@@ -146,7 +146,7 @@ def update_item():
             if new_price:
                 item["price"] = new_price
 
-            if new_stock:
+            if new_stock != "":
                 item["stock"] = new_stock
 
             print("\nItem updated successfully!")
@@ -173,6 +173,7 @@ def delete_item():
             return
 
     print("Inventory item not found.")
+
 
 def find_product():
     print("\n===== FIND PRODUCT =====")
@@ -212,11 +213,54 @@ def find_product():
     print(f"Brand: {product['brand']}")
     print(f"Barcode: {product['barcode']}")
 
+    add_to_inventory = input(
+        "\nWould you like to add this product to inventory? (y/n): "
+    ).strip().lower()
+
+    if add_to_inventory != "y":
+        print("Product was not added to inventory.")
+        return
+
+    try:
+        price = float(input("Enter price: "))
+
+        if price <= 0:
+            print("Price must be greater than 0.")
+            return
+
+    except ValueError:
+        print("Invalid price. Please enter a number.")
+        return
+
+    try:
+        stock = int(input("Enter stock: "))
+
+        if stock < 0:
+            print("Stock cannot be negative.")
+            return
+
+    except ValueError:
+        print("Invalid stock. Please enter a whole number.")
+        return
+
+    new_item = {
+        "id": max(item["id"] for item in inventory) + 1 if inventory else 1,
+        "name": product["name"],
+        "brand": product["brand"],
+        "price": price,
+        "stock": stock,
+        "barcode": product["barcode"]
+    }
+
+    inventory.append(new_item)
+
+    print("\nProduct added to inventory successfully!")
+    print(new_item)
 
 while True:
     show_menu()
 
-    choice = input("Choose an option: ")
+    choice = input("Choose an option: ").strip()
 
     if choice == "1":
         view_inventory()
@@ -233,7 +277,7 @@ while True:
     elif choice == "5":
         delete_item()
 
-    elif choice =="6":
+    elif choice == "6":
         find_product()
 
     elif choice == "7":
@@ -241,4 +285,4 @@ while True:
         break
 
     else:
-        print("Option not available yet.")
+        print("Invalid option. Please choose 1-7.")
