@@ -257,32 +257,34 @@ def find_product():
     print("\nProduct added to inventory successfully!")
     print(new_item)
 
-while True:
-    show_menu()
+def main():
+    while True:
+        show_menu()
 
-    choice = input("Choose an option: ").strip()
+        choice = input("Choose an option: ").strip()
 
-    if choice == "1":
-        view_inventory()
+        if choice == "1":
+            view_inventory()
 
-    elif choice == "2":
-        view_one_item()
+        elif choice == "2":
+            view_one_item()
 
-    elif choice == "3":
-        add_item()
+        elif choice == "3":
+            add_item()
 
-    elif choice == "4":
-        update_item()
+        elif choice == "4":
+            update_item()
 
-    elif choice == "5":
-        delete_item()
+        elif choice == "5":
+            delete_item()
 
-    elif choice == "6":
-        find_product()
+        elif choice == "6":
+            find_product()
 
-    elif choice == "7":
-        print("Goodbye!")
-        break
+        elif choice == "7":
+            print("Goodbye!")
+            break
 
-    else:
-        print("Invalid option. Please choose 1-7.")
+
+if __name__ == "__main__":
+    main()
