@@ -45,6 +45,8 @@ inventory-management-system/
     ├── test_external_api.py
     └── test_cli.py
 
+
+
 ### File Descriptions
 
  File                    Purpose                                          
@@ -58,6 +60,8 @@ inventory-management-system/
  `test_external_api.py`  Tests OpenFoodFacts product lookup 
  `test_cli_app.py`       Test checks whether your Command-Line Interface works  
  `requirements.txt`      Lists project dependencies                       
+
+
 
 ## Installation and Setup
 
