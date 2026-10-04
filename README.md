@@ -28,7 +28,6 @@ The system provides a REST API for managing inventory, integrates with the OpenF
 
 ## Project Structure
 
-```text
 inventory-management-system/
 │
 ├── app.py
@@ -43,9 +42,8 @@ inventory-management-system/
 └── tests/
     ├── __init__.py
     ├── test_app.py
-    └── test_external_api.py
-    |__ test_cli.py
-```
+    ├── test_external_api.py
+    └── test_cli.py
 
 ### File Descriptions
 
@@ -58,7 +56,7 @@ inventory-management-system/
  `cli.py`                Provides the command-line interface              
  `test_app.py`           Tests the Flask inventory API                    
  `test_external_api.py`  Tests OpenFoodFacts product lookup 
- `test_cli_app.py`       Test checks whether your Command-Line Interface works correctly  
+ `test_cli_app.py`       Test checks whether your Command-Line Interface works  
  `requirements.txt`      Lists project dependencies                       
 
 ## Installation and Setup
