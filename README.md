@@ -57,6 +57,7 @@ inventory-management-system/
  `cli.py`                Provides the command-line interface              
  `test_app.py`           Tests the Flask inventory API                    
  `test_external_api.py`  Tests OpenFoodFacts product lookup 
+ `test_cli_app.py`       Test checks whether your Command-Line Interface works correctly  
  `requirements.txt`      Lists project dependencies                       
 
 ## Installation and Setup
@@ -439,6 +440,7 @@ The test suite covers:
 * Invalid stock values
 * OpenFoodFacts barcode lookup
 * OpenFoodFacts name lookup
+* CLI Interface
 
 ## Maintainability
 
