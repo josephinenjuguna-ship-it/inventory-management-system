@@ -44,6 +44,7 @@ inventory-management-system/
     ├── __init__.py
     ├── test_app.py
     └── test_external_api.py
+    |__ test_cli.py
 ```
 
 ### File Descriptions
